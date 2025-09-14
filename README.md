@@ -20,3 +20,5 @@ erzeugt werden. Anschließend lässt sich das Projekt mit
 kompilieren.
 
 Die Datei `gradle-wrapper.jar` wird beim lokalen Aufruf von `gradle wrapper` erzeugt und bleibt unversioniert.
+
+Weitere geplante Spielmechaniken und Rollen sind im [Konzeptdokument](docs/PLAN.md) skizziert.
