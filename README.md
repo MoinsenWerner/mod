@@ -14,8 +14,9 @@ gradle wrapper --gradle-version 8.7
 erzeugt werden. Anschließend lässt sich das Projekt mit
 
 ```
-
 ./gradlew build --no-daemon --console=plain
 ```
 
 kompilieren.
+
+Die Datei `gradle-wrapper.jar` wird beim lokalen Aufruf von `gradle wrapper` erzeugt und bleibt unversioniert.
