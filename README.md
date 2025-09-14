@@ -14,7 +14,8 @@ gradle wrapper --gradle-version 8.7
 erzeugt werden. Anschließend lässt sich das Projekt mit
 
 ```
-./gradlew build
+
+./gradlew build --no-daemon --console=plain
 ```
 
 kompilieren.
