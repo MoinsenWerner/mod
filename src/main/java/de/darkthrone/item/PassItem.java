@@ -2,11 +2,8 @@ package de.darkthrone.item;
 
 import net.minecraft.world.item.Item;
 
-/**
- * Placeholder item representing a kingdom pass.
- */
 public class PassItem extends Item {
-    public PassItem(Properties properties) {
+    public PassItem(Item.Properties properties) {
         super(properties);
     }
 }
