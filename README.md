@@ -22,3 +22,5 @@ kompilieren.
 Die Datei `gradle-wrapper.jar` wird beim lokalen Aufruf von `gradle wrapper` erzeugt und bleibt unversioniert.
 
 Weitere geplante Spielmechaniken und Rollen sind im [Konzeptdokument](docs/PLAN.md) skizziert.
+
+Beim Start der Mod wird zur Kontrolle ein Log-Eintrag mit SLF4J ausgegeben.
