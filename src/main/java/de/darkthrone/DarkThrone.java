@@ -15,6 +15,7 @@ public class DarkThrone {
     public static final String MOD_ID = "darkthrone";
     private static final Logger LOGGER = LoggerFactory.getLogger(DarkThrone.class);
 
+    @SuppressWarnings("removal")
     public DarkThrone() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(modBus);
