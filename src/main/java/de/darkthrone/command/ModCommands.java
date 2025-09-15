@@ -29,21 +29,23 @@ public class ModCommands {
                             try {
                                 AbilityType ability = AbilityType.valueOf(abilityName);
                                 AbilityManager.setAbility(target, ability);
-                                ctx.getSource().sendSuccess(() ->
-                                    Component.literal(target.getName().getString() + " set to ability " + ability), true);
+                                ctx.getSource().sendSuccess(
+                                    () -> Component.literal(target.getName().getString() + " set to ability " + ability), true);
                             } catch (IllegalArgumentException ex) {
-                                ctx.getSource().sendFailure(() ->
+                                ctx.getSource().sendFailure(
                                     Component.literal("Unknown ability: " + abilityName));
                             }
                             return 1;
-                        })))))
+                        }))
+                )
+            )
         );
 
-        // Kingdom creation/deletion
+        // Kingdom creation
         dispatcher.register(Commands.literal("kingdom")
             .requires(src -> src.hasPermission(2))
-            .then(Commands.argument("name", StringArgumentType.word())
-                .then(Commands.literal("set")
+            .then(Commands.literal("create")
+                .then(Commands.argument("name", StringArgumentType.word())
                     .executes(ctx -> {
                         String name = StringArgumentType.getString(ctx, "name");
                         KingdomManager.createKingdom(name);
@@ -51,14 +53,18 @@ public class ModCommands {
                             Component.literal("Kingdom " + name + " created"), true);
                         return 1;
                     }))
-                .then(Commands.literal("del")
+            )
+            .then(Commands.literal("del")
+                .then(Commands.argument("name", StringArgumentType.word())
                     .executes(ctx -> {
                         String name = StringArgumentType.getString(ctx, "name");
                         KingdomManager.deleteKingdom(name);
                         ctx.getSource().sendSuccess(() ->
                             Component.literal("Kingdom " + name + " deleted"), true);
                         return 1;
-                    })))));
+                    }))
+            )
+        );
 
         // Delkingdom shortcut
         dispatcher.register(Commands.literal("delkingdom")
@@ -70,7 +76,9 @@ public class ModCommands {
                     ctx.getSource().sendSuccess(() ->
                         Component.literal("Kingdom " + name + " deleted"), true);
                     return 1;
-                })));
+                })
+            )
+        );
 
         // NoPVP command placeholder
         dispatcher.register(Commands.literal("nopvp")
@@ -78,7 +86,8 @@ public class ModCommands {
             .executes(ctx -> {
                 ctx.getSource().sendSuccess(() -> Component.literal("No-PvP zone defined"), true);
                 return 1;
-            }));
+            })
+        );
 
         // Career command placeholder
         dispatcher.register(Commands.literal("career")
@@ -92,9 +101,13 @@ public class ModCommands {
                     .executes(ctx -> {
                         String pos = StringArgumentType.getString(ctx, "position");
                         ServerPlayer target = EntityArgument.getPlayer(ctx, "player");
-                        ctx.getSource().sendSuccess(() -> Component.literal("Position " + pos + " set for " + target.getName().getString()), true);
+                        ctx.getSource().sendSuccess(
+                            () -> Component.literal("Position " + pos + " set for " + target.getName().getString()), true);
                         return 1;
-                    }))));
+                    })
+                )
+            )
+        );
 
         // Vote king placeholder
         dispatcher.register(Commands.literal("vote")
@@ -104,7 +117,10 @@ public class ModCommands {
                         ServerPlayer target = EntityArgument.getPlayer(ctx, "player");
                         ctx.getSource().sendSuccess(() -> Component.literal("Voted for " + target.getName().getString()), true);
                         return 1;
-                    }))));
+                    })
+                )
+            )
+        );
 
         // War/peace/joinwar placeholders
         dispatcher.register(Commands.literal("war")
@@ -113,7 +129,9 @@ public class ModCommands {
                     String name = StringArgumentType.getString(ctx, "kingdom");
                     ctx.getSource().sendSuccess(() -> Component.literal("War declared on " + name), true);
                     return 1;
-                })));
+                })
+            )
+        );
 
         dispatcher.register(Commands.literal("peace")
             .then(Commands.argument("kingdom", StringArgumentType.word())
@@ -121,7 +139,9 @@ public class ModCommands {
                     String name = StringArgumentType.getString(ctx, "kingdom");
                     ctx.getSource().sendSuccess(() -> Component.literal("Peace made with " + name), true);
                     return 1;
-                })));
+                })
+            )
+        );
 
         dispatcher.register(Commands.literal("joinwar")
             .then(Commands.argument("kingdom", StringArgumentType.word())
@@ -129,7 +149,9 @@ public class ModCommands {
                     String name = StringArgumentType.getString(ctx, "kingdom");
                     ctx.getSource().sendSuccess(() -> Component.literal("Joined war against " + name), true);
                     return 1;
-                })));
+                })
+            )
+        );
 
         // Exil command placeholder
         dispatcher.register(Commands.literal("exil")
@@ -138,14 +160,17 @@ public class ModCommands {
                     ServerPlayer target = EntityArgument.getPlayer(ctx, "player");
                     ctx.getSource().sendSuccess(() -> Component.literal(target.getName().getString() + " exiled"), true);
                     return 1;
-                })));
+                })
+            )
+        );
 
         // Horse command placeholder
         dispatcher.register(Commands.literal("horse")
             .executes(ctx -> {
                 ctx.getSource().sendSuccess(() -> Component.literal("Horse summoned"), true);
                 return 1;
-            }));
+            })
+        );
 
         // Knight equip command placeholder
         dispatcher.register(Commands.literal("knight")
@@ -153,6 +178,8 @@ public class ModCommands {
                 .executes(ctx -> {
                     ctx.getSource().sendSuccess(() -> Component.literal("Knight equipment granted"), true);
                     return 1;
-                })));
+                })
+            )
+        );
     }
 }
