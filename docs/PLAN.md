@@ -105,4 +105,3 @@ Dieses Dokument beschreibt geplante Spielmechaniken der "Dark Throne" Forge-Mod.
 ## Zuständigkeiten
 - Felix
 - Daniel
-
